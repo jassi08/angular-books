@@ -1,5 +1,13 @@
-<p>
-  Book Name : {{book.name}}<br>
-  Author : {{book.author}}<br>
-  Price : {{book.price}}
-</p>
+
+<ul>
+  <li *ngFor="let book of books; let i = index;">
+    <p>
+      Book Name : {{book.name}}<br>
+      Author : {{book.author}}<br>
+      Price : {{book.price}} 
+      <button (click)= "deleteBook(i)">Delete</button><br>
+    </p>
+    
+  </li>
+</ul>
+

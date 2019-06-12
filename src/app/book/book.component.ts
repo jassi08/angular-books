@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from './book.model';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book',
@@ -7,12 +8,15 @@ import { Book } from './book.model';
   styleUrls: ['./book.component.sass']
 })
 export class BookComponent implements OnInit {
-  private book: Book;
+  private books: Book[];
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.book = new Book('Piran Da paraga', 'Shiv Kumar', 200.00);
+    this.books = this.bookService.getAll();
   }
 
+  deleteBook(i: number) {
+    this.books = this.bookService.delete(i);
+  }
 }
