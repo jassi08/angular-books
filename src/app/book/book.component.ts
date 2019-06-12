@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from './book.model';
 
 @Component({
   selector: 'app-book',
@@ -6,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book.component.sass']
 })
 export class BookComponent implements OnInit {
-  private name: string;
+  private book: Book;
 
   constructor() { }
 
   ngOnInit() {
-    this.name = 'Hardy Boys';
+    this.book = new Book('Piran Da paraga', 'Shiv Kumar', 200.00);
   }
 
 }
